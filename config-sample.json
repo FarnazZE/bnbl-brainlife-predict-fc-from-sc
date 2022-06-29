@@ -1,0 +1,8 @@
+{
+    "csv": "data/csv",
+    "index":"data/index.json",
+    "label":"data/label.json",
+    "clean data":"true",
+    "gammavals":0.5,
+    "predictors":"all" 
+}
