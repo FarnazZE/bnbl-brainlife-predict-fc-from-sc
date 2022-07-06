@@ -418,7 +418,8 @@ if config1["clean data"]=="true":
 if len(xR)>0 and config1["clean data"]=="false":
     exit and print("connectivity matrix (network) should be fully connected")
 
-
+a = np.delete(np.delete(a, xR, axis=0), xR, axis=1)
+b = np.delete(np.delete(b, xR, axis=0), xR, axis=1)
 
 abin=a.copy()
 abin[abin>0]=1
