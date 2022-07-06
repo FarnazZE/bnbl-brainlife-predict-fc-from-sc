@@ -412,7 +412,7 @@ yRb, =np.where(Rb != 0)
 
 xR=np.intersect1d(xRa,xRb)
 
-if config1["clean data"]=="true":
+if config1["clean data"]==true:
     a = np.delete(np.delete(a, xR, axis=0), xR, axis=1)
     b = np.delete(np.delete(b, xR, axis=0), xR, axis=1)
 if len(xR)>0 and config1["clean data"]=="false":
