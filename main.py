@@ -363,7 +363,7 @@ if(not os.path.exists(outputDirectory)):
 
 # Reading config file
 with open(configFilename, "r") as fd:
-    config = json.load(fd1)
+    config = json.load(fd)
 
     
     
@@ -371,11 +371,11 @@ indexFilename1 = config["index"][0]
 labelFilename1 = config["label"][0]
 CSVDirectory1 = config["csv"][0]
 
-with open(indexFilename1, "r") as fd1:
-    indexData1 = json.load(fd1)
+with open(indexFilename1, "r") as fd:
+    indexData1 = json.load(fd)
 
-with open(labelFilename1, "r") as fd1:
-    labelData1 = json.load(fd1)
+with open(labelFilename1, "r") as fd:
+    labelData1 = json.load(fd)
     labelDataHasHeader = False
     
 indexFilename2 = config["index"][1]
