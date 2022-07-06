@@ -380,9 +380,9 @@ with open(labelFilename1, "r") as fd1:
     labelData1 = json.load(fd1)
     labelDataHasHeader = False
     
-indexFilename2 = config2["index"]
-labelFilename2 = config2["label"]
-CSVDirectory2 = config2["csv"]
+indexFilename2 = config2["index"][1]
+labelFilename2 = config2["label"][1]
+CSVDirectory2 = config2["csv"][1]
 
 with open(indexFilename2, "r") as fd2:
     indexData2 = json.load(fd2)
