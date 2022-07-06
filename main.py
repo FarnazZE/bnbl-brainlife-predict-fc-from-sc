@@ -369,9 +369,9 @@ with open(configFilename, "r") as fd2:
     config2 = json.load(fd2)
     
     
-indexFilename1 = config1["index"]
-labelFilename1 = config1["label"]
-CSVDirectory1 = config1["csv"]
+indexFilename1 = config1["index"][0]
+labelFilename1 = config1["label"][0]
+CSVDirectory1 = config1["csv"][0]
 
 with open(indexFilename1, "r") as fd1:
     indexData1 = json.load(fd1)
