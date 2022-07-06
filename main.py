@@ -369,12 +369,12 @@ with open(configFilename, "r") as fd2:
     config2 = json.load(fd2)
     
     
-indexFilename1 = config1["index"]
+indexFilename1 = config1["index"][0]
 labelFilename1 = config1["label"]
 CSVDirectory1 = config1["csv"]
 
-#with open(indexFilename1, "r") as fd1:
-    #indexData1 = json.load(fd1)
+with open(indexFilename1, "r") as fd1:
+    indexData1 = json.load(fd1)
 
 with open(labelFilename1, "r") as fd1:
     labelData1 = json.load(fd1)
