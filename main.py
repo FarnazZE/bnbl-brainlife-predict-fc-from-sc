@@ -369,7 +369,7 @@ with open(configFilename, "r") as fd2:
     config2 = json.load(fd2)
     
     
-indexFilename1 = config1["index"][0]
+indexFilename1 = config1["index"]
 labelFilename1 = config1["label"]
 CSVDirectory1 = config1["csv"]
 
