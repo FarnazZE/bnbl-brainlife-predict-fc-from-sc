@@ -362,14 +362,14 @@ if(not os.path.exists(outputDirectory)):
     os.makedirs(outputDirectory)
 
 # Reading config file
-with open(configFilename, "r") as fd1:
-    config1 = json.load(fd1)
+with open(configFilename, "r") as fd:
+    config = json.load(fd1)
 
     
     
-indexFilename1 = config1["index"][0]
-labelFilename1 = config1["label"][0]
-CSVDirectory1 = config1["csv"][0]
+indexFilename1 = config["index"][0]
+labelFilename1 = config["label"][0]
+CSVDirectory1 = config["csv"][0]
 
 with open(indexFilename1, "r") as fd1:
     indexData1 = json.load(fd1)
@@ -378,9 +378,9 @@ with open(labelFilename1, "r") as fd1:
     labelData1 = json.load(fd1)
     labelDataHasHeader = False
     
-indexFilename2 = config1["index"][1]
-labelFilename2 = config1["label"][1]
-CSVDirectory2 = config1["csv"][1]
+indexFilename2 = config["index"][1]
+labelFilename2 = config["label"][1]
+CSVDirectory2 = config["csv"][1]
 
 with open(indexFilename2, "r") as fd2:
     indexData2 = json.load(fd2)
@@ -410,10 +410,10 @@ yRb, =np.where(Rb != 0)
 
 xR=np.intersect1d(xRa,xRb)
 
-if (config1['remove nodes'] == 'true'):
+if (config['remove nodes'] == 'true'):
     a = np.delete(np.delete(a, xR, axis=0), xR, axis=1)
     b = np.delete(np.delete(b, xR, axis=0), xR, axis=1)
-if (len(xR)>0 and config1['remove nodes']== 'false'):
+if (len(xR)>0 and config['remove nodes']== 'false'):
     exit and print("connectivity matrix (network) should be fully connected")
 
 
@@ -422,7 +422,7 @@ abin=a.copy()
 abin[abin>0]=1
 n = len(a)
 
-gammavals=config1['gammavals']
+gammavals=config['gammavals']
 
 
 print("binary predictors...")
@@ -476,10 +476,10 @@ PTwei = path_transitivity(L,transform=None)             # path transitivity
 
 
 
-if config1["predictors"]=='all':
+if config["predictors"]=='all':
     mats=[PLbin,Gbin,Cosbin,mfptbin,MIbin,SIbin,PTbin,Gwei,Coswei,mfptwei,MIwei,PLwei,SIwei,PTwei]
 else:
-    mats=[config1["predictors"]]
+    mats=[config["predictors"]]
 
 n=len(mats[0])
 r = np.zeros((n,len(mats)))
