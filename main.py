@@ -412,14 +412,13 @@ yRb, =np.where(Rb != 0)
 
 xR=np.intersect1d(xRa,xRb)
 
-if config1["clean data"]=="true":
+if (config1['remove nodes'] == 'true'):
     a = np.delete(np.delete(a, xR, axis=0), xR, axis=1)
     b = np.delete(np.delete(b, xR, axis=0), xR, axis=1)
-if len(xR)>0 and config1["clean data"]=="false":
+if (len(xR)>0 and config1['remove nodes']== 'false'):
     exit and print("connectivity matrix (network) should be fully connected")
 
-a = np.delete(np.delete(a, xR, axis=0), xR, axis=1)
-b = np.delete(np.delete(b, xR, axis=0), xR, axis=1)
+
 
 abin=a.copy()
 abin[abin>0]=1
