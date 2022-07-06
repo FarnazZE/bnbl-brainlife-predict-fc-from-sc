@@ -365,8 +365,6 @@ if(not os.path.exists(outputDirectory)):
 with open(configFilename, "r") as fd1:
     config1 = json.load(fd1)
 
-with open(configFilename, "r") as fd2:
-    config2 = json.load(fd2)
     
     
 indexFilename1 = config1["index"][0]
@@ -380,9 +378,9 @@ with open(labelFilename1, "r") as fd1:
     labelData1 = json.load(fd1)
     labelDataHasHeader = False
     
-indexFilename2 = config2["index"][1]
-labelFilename2 = config2["label"][1]
-CSVDirectory2 = config2["csv"][1]
+indexFilename2 = config1["index"][1]
+labelFilename2 = config1["label"][1]
+CSVDirectory2 = config1["csv"][1]
 
 with open(indexFilename2, "r") as fd2:
     indexData2 = json.load(fd2)
