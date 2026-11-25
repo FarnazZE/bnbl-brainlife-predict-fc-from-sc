@@ -2,6 +2,49 @@
 <!-- [![Run on Brainlife.io](https://img.shields.io/badge/Brainlife-bl.app.1-blue.svg)](https://doi.org/10.25663/brainlife.app.435) -->
 
 # Description
+
+<!-- brainlife-app:begin (generated from the App manifest; edit the manifest, not this block) -->
+
+> **Computes binary and weighted structural-connectivity predictors (path length, communicability, cosine distance, mean first passage time, matching index, search information, path transitivity) and how well each predicts functional connectivity per brain region.**
+
+Derives 14 network predictors from a structural connectivity matrix and, for every region, correlates each predictor with that region's functional connectivity profile, saving the squared correlations (r^2) per region and predictor. Use it to study local structure-function coupling. The code reads two connectivity matrices (structural first, functional second) from the conmat input although the input is registered as a single matrix, and it writes a CSV (output/csv/rsq.csv) although the output is registered as a PDF report.
+
+| | |
+|---|---|
+| 📥 **Inputs** | `neuro/conmat` |
+| 📤 **Outputs** | `report/pdf` |
+| 🐳 **Container** | `filsilva/cxnetwork:0.2.0` |
+| ⚙️ **Resources** | 1 CPUs · 6 GB memory · 1 h walltime |
+| 🔗 **Run it** | [doi.org/10.25663/brainlife.app.646](https://doi.org/10.25663/brainlife.app.646) |
+
+#### 📥 Inputs
+
+| Input | Datatype | Required | Description |
+|---|---|---|---|
+| `conmat` | `neuro/conmat` | yes |  |
+
+#### 📤 Outputs
+
+| Output | Datatype | Description |
+|---|---|---|
+| `output` | `report/pdf` |  |
+
+<details>
+<summary><b>⚙️ Parameters</b> (3)</summary>
+
+| Parameter | Type | Default | Description |
+|---|---|---|---|
+| `gammavals` | number | `0.5` | convert edge weight to cost |
+| `predictors` | enum | `all` | Which predictor to evaluate; 'all' evaluates all 14 binary and weighted predictors. Options: `all`, `PLbin`, `Gbin`, `Cosbin`, `mfptbin`, `MIbin`, `SIbin`, `PTbin`, `Gwei`, `Coswei`, `mfptwei`, `MIwei`, `SIwei`, `PTwei`, `PLwei`. |
+| `remove nodes` | enum | `false` | remove isolated nodes (row/columns with all zero values) Options: `true`, `false`. |
+
+</details>
+
+📚 **References used by this App:**
+- Esfahlani FZ, Faskowitz J, Slack J, Misic B, Betzel R. Local structure-function relationships in human brain networks across the human lifespan. bioRxiv (2021).
+
+<!-- brainlife-app:end -->
+
 Brainlife App for generating a set of predictors from structural connectivity matrix. 
 ### Authors
 - [Farnaz Zamani Esfahlani]
